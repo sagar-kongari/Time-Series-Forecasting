@@ -7,14 +7,14 @@ This repository contains time series analysis and forecasting of a stock. A real
 
 Access notebooks: [analysis](content/analysis.ipynb)  &  [forecast](content/forecasting.ipynb)
 
-## Decomposition
+## ⏳ Decomposition
 The most common way to analyze your data is to decompose your time series. statsmodels provides a useful method `seasonal_decompose` that decomposes data into 4 different components namely level, trend, seasonality and residual(noise). Most of the time series are a combination these components.
 - Additive model: `(level + trend + seasonal + residual)` In additive model, trend is linear, seasonality has constant frequency and amplitude.
 - Multiplicative model: `(level*trend*seasonal*residual)` Tn multiplicative model, trend in non-linear, seasonality is not constant.
 
 ![Seasonal decomposition](content/img/decomposition.png)
 
-## Stationarity
+## 🧍‍♀️ Stationarity
 Stationarity is an important charateristic of time series. Often, stock prices are not stationary. The trend may increase/decrease abruptly. Voltatlity is sensitive w.r.t time.To create a prediction model, we need the time series to be stationary. To check if the data is stationary or not, there are tests which can be performed like:
 1. **Augmented Dickey-Fuller test**:
    - The Augmented Dickey-Fuller test is a type of statistical test called a unit root test. The intuition behind a unit root test is that it determines how strongly a time series is defined by a trend. There are a number of unit root tests and the Augmented Dickey-Fuller may be one of the more widely used. It uses an autoregressive model and optimizes an information criterion across multiple different lag values. The null hypothesis of the test is that the time series can be represented by a unit root, that it is not stationary (has some time-dependent structure). The alternate hypothesis (rejecting the null hypothesis) is that the time series is stationary.
@@ -29,10 +29,10 @@ Stationarity is an important charateristic of time series. Often, stock prices a
    
 ![Stationary Test](content/img/ADF.png)
 
-## Differencing
+## ➗ Differencing
 To make the data stationary we use differencing. Applying a difference transform to a time series could help remove the series dependence on time. This transform is done by substracting the previous obesvation to the current one. `difference(t) = observation(t) - observation(t-1)`
 
-## SARIMA Model
+## 🖥️ SARIMA Model
 Seasonal Autoregressive Integrated Moving Average, SARIMA or Seasonal ARIMA, is an extension of ARIMA that explicitly supports univariate time series data with a seasonal component. It adds three new hyperparameters to specify the autoregression (AR), differencing (I) and moving average (MA) for the seasonal component of the series, as well as an additional parameter for the period of the seasonality.
 
 __Trend Elements:__ There are three trend elements that require configuration. They are the same as the ARIMA model, specifically:
